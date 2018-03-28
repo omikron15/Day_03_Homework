@@ -34,7 +34,7 @@ reverse = stops.reverse
 reverse
 # 10. Print out all the stops using a for loop
 for each_stop in stops
-  p each_stop
+  #p each_stop
 end
 ## Exercise B
 
@@ -99,16 +99,51 @@ users = {
 ### Complete these tasks:
 
 # 1. Get Jonathan's Twitter handle (i.e. the string `"jonnyt"`)
+users["Jonathan"][:twitter]
 # 2. Get Erik's hometown
+users["Erik"][:home_town]
 # 3. Get the array of Erik's lottery numbers
+users["Erik"][:lottery_numbers]
 # 4. Get the type of Avril's pet Monty
+users["Avril"][:pets][0][:species]
 # 5. Get the smallest of Erik's lottery numbers
+((users["Erik"][:lottery_numbers]).sort)[0]
 # 6. Return an array of Avril's lottery numbers that are even
+numbers_array = users["Avril"][:lottery_numbers]
+even_numbers_array = []
+for each_num in numbers_array
+  if each_num % 2 == 0
+    even_numbers_array.push(each_num)
+  end #end if
+end #end for
+#p even_numbers_array
+
 # 7. Erik is one lottery number short! Add the number `7` to be included in his lottery numbers
+(users["Erik"][:lottery_numbers]).push(7)
 # 8. Change Erik's hometown to Edinburgh
+users["Erik"][:home_town] = "Edinburgh"
+users["Erik"][:home_town]
 # 9. Add a pet dog to Erik called "Fluffy"
+(users["Erik"][:pets]).push(:name => "Fluffy",:species => "dog")
 # 10. Add another person to the users hash
 
+users["Connor"] = {
+    :twitter => "Connor@T",
+    :lottery_numbers => [1, 99, 37, 21, 49, 77],
+    :home_town => "Stirling",
+    :pets => [
+    {
+      :name => "Scotty",
+      :species => "cat"
+    },
+    {
+      :name => "Nemo",
+      :species => "fish"
+    }
+  ]
+  }
+
+p users
 
 ## Exercise C
 
