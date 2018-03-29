@@ -17,11 +17,13 @@ stops.insert(4,"Polmont")
 # 4. Work out the index position of `"Linlithgow"`
 stops.find_index("Linlithgow")
 # 5. Remove `"Livingston"` from the array using its name
-stops.delete("Linlithgow")
+stops.delete("Livingston")
 # 6. Delete `"Cumbernauld"` from the array by index
 stops.delete_at(2)
 # 7. How many stops there are in the array?
-stops.count
+stops.count()
+stops.size
+stops.length
 # 8. How many ways can we return `"Falkirk High"` from the array?
 stops[2]
 stops[-5]
@@ -107,7 +109,9 @@ users["Erik"][:lottery_numbers]
 # 4. Get the type of Avril's pet Monty
 users["Avril"][:pets][0][:species]
 # 5. Get the smallest of Erik's lottery numbers
-((users["Erik"][:lottery_numbers]).sort)[0]
+((users["Erik"][:lottery_numbers]).sort())[0]
+#Alterntaive
+(users["Erik"][:lottery_numbers]).min()
 # 6. Return an array of Avril's lottery numbers that are even
 numbers_array = users["Avril"][:lottery_numbers]
 even_numbers_array = []
@@ -118,14 +122,16 @@ for each_num in numbers_array
 end #end for
 #p even_numbers_array
 
+#Alterntaive method would be to use .even? method as the condition
+#the if statement could also be repalced with a guard (single line if statment)
+
 # 7. Erik is one lottery number short! Add the number `7` to be included in his lottery numbers
 (users["Erik"][:lottery_numbers]).push(7)
 # 8. Change Erik's hometown to Edinburgh
 users["Erik"][:home_town] = "Edinburgh"
-
 # 9. Add a pet dog to Erik called "Fluffy"
 (users["Erik"][:pets]).push(:name => "Fluffy",:species => "dog")
-p users
+#p users
 # 10. Add another person to the users hash
 
 users["Connor"] = {
@@ -176,7 +182,7 @@ united_kingdom[1][:capital] = "Cardiff"
 united_kingdom.push(name: "Northen Ireland", population: 1811000, capital: "Belfast" )
 # 3. Use a loop to print the names of all the countries in the UK.
 for each_country in united_kingdom
-  p each_country[:name]
+  #p each_country[:name]
 end
 
 # 4. Use a loop to find the total population of the UK.
@@ -184,4 +190,4 @@ total_pop = 0
 for each_country in united_kingdom
   total_pop += each_country[:population]
 end
-p total_pop
+#p total_pop
